@@ -1,0 +1,10 @@
+
+| <%= link_to "Home", categories_path %> |
+<%= link_to "Delete ", category_path(@category),
+    method: :delete, data: { turbo_confirm: "Are you sure?" }
+%>
+<h1>Edit Category</h1>
+
+<%= render "form", category: @category %>
+
+ <%= link_to "Back to category", category_path(@category.id) %>

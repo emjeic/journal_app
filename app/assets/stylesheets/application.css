@@ -1,0 +1,97 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ /* body {
+    background-color: gray;
+ } */
+.flexbox-container {
+   display: flex;
+   flex-direction: wrap;
+   justify-content: center;
+   border: 1px solid gray;
+   border-radius: 3px;
+   margin: 3px;
+   background-color: #99E5FF;
+}
+.category-container {
+   margin: 5px;
+   padding: 5px;
+   height: fit-content;
+   width: 300px;
+   border: 1px solid black;
+   border-radius: 3px;
+   background-color: whitesmoke;
+   z-index: 0;
+}
+/* .show-category-link {
+   position: fixed;
+   margin-top: 50px;
+} */
+a {
+   text-decoration: none;
+   cursor: pointer;
+}
+a:hover {
+   text-decoration: underline;
+   color: blue;
+}
+.new-task {
+   border: 1px solid black;
+   max-width: fit-content;
+   padding: 5px;
+   border-radius: 3px;
+   cursor: pointer;
+}
+.new-task > a {
+   text-decoration: none;
+}
+.new-task:hover {
+   background-color: lightblue;
+}
+.new-task a:hover{
+   color: black;
+}
+.completed-task {
+   text-decoration: line-through;
+ }
+ /* app/assets/stylesheets/application.css (or application.scss) */
+.task-checkbox:checked + label {
+   text-decoration: line-through;
+ }
+ /* .task-checkbox:checked + div {
+   text-decoration: line-through;
+ } */
+ /* .task-list-container {
+
+ } */
+ table, th, td {
+   border: 2px solid black;
+   text-align: center;
+ }
+ table, td {
+   min-width: 350px;
+ }
+ th {
+   background-color: lightgray;
+ }
+ /* table {
+   table-layout:fixed;
+ }
+ td { 
+   overflow: hidden; 
+   text-overflow: ellipsis; 
+   word-wrap: break-word;
+} */
+ 

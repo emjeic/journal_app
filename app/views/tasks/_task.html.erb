@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Action</th>
+    <th>Assigned_date</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td><%= task.task %></td>
+    <td>
+      <%= link_to "Edit", edit_category_task_path(@category, task) %>
+      <!-- # User story #7: As a user, I want to delete a task to lessen my unnecessary daily tasks. -->
+      <%= button_to "Delete", category_task_path(@category, task),
+      method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    </td>
+    <td><%= task.date %></td>
+    <td><%= task.completed ? 'Completed' : 'Incomplete' %></td>
+  </tr>
+ </table>
+

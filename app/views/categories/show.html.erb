@@ -1,0 +1,54 @@
+<div class='show-container'>
+  <div class="nav-action">
+      <%= link_to "Home", categories_path %> |
+      <%= link_to "Edit", edit_category_path(@category) %>
+      <%= button_to "Delete this category", category_path(@category),
+      method: :delete, data: { turbo_confirm: "Are you sure?" }
+      %>              
+  </div>
+
+  <div class='category'>
+    <h1><%= @category.title %></h1>
+    <p><%= @category.description %></p>
+  </div>
+  <div class="new-task">
+    <%= link_to "New task", new_category_task_path(@category) %>
+  </div>
+  
+  <h3>Task list</h3>
+  <!-- # User story #6: As a user, I want to view a task to show task's details. -->
+
+  <div class="task-list-container">
+    <% if @tasks.any? %>
+      <%= render @category.tasks %>
+    <% else %>
+      <p>No task post yet.</p>
+    <% end %>
+  
+      <!-- # User story #8: As a user, I want to view my task for today for me to remind what are my priorities for today. -->
+    <div class="today-task-container">
+
+      <h3>Today's tasks</h3>
+      <% if @tasks.any? %>
+        <% @tasks.each do |task| %>
+          <div>
+            <%= form_for(task, url: category_task_path(@category, task), method: :patch) do |f| %>
+              
+      <!-- Additional user story: As a user, I want to mark a task as completed so that I can get that dopamine hit -->  
+              <label>
+                  <%= f.check_box :completed, onchange: "this.form.submit()" %>
+                <span <%= 'style="text-decoration: line-through;"' if task.completed? %>>
+                  <%= task.task %>
+                </span>
+              </label>
+            <% end %>
+          </div>
+        <% end %>
+        <% else %>
+        <p>No tasks for today in this category.</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

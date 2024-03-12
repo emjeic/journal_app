@@ -1,0 +1,20 @@
+<%= form_with model: [ @category, @task ], local: true, data: {turbo: false} do |form| %>
+
+    <div>
+     
+        <%= form.label :task %>
+        <%= form.text_field :task %><br/>
+    </div>
+
+    <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+    </div>
+
+
+
+    <div>
+        <%= form.submit "Create task"%>
+    </div>
+
+<% end %>
