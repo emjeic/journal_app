@@ -4,7 +4,7 @@ class TestAppTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
-  include Devise::TestHelpers
+  include Devise::Test::IntegrationHelpers
 
   # test "create_task" do 
   #   sign_in users(:two)
@@ -14,7 +14,7 @@ class TestAppTest < ActionDispatch::IntegrationTest
   # end
 
   test "visiting the index" do
-    visit root_path
+    get root_path
 
   end
 end
