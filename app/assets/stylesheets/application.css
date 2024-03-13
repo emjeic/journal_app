@@ -31,8 +31,10 @@
    justify-content: center;
    border: 1px solid gray;
    border-radius: 3px;
-   margin: 3px;
+   margin: auto;
    background-color: #99E5FF;
+   max-width: 1000px;
+   height: 400px;
 }
 .category-container {
    margin: 5px;
