@@ -2,24 +2,21 @@
 <h1 class="title">Journal App</h1>
 <%= link_to "New Category", new_category_path %>
 
-<div class="flexbox-container">
-    
-<% if @categories.any? %>
-    <% @categories.each do |category| %>
-       <div class="category-container">
-            <h3><%= category.title %></h3>
-            <p><%= category.description %></p>
-            <div class="today-task-container">
-                <p>Pending tasks for today: <%= @pending_tasks_count[category.id] || 0 %></p>
+<div class="flexbox-container">   
+    <% if @categories.any? %>
+        <% @categories.each do |category| %>
+            <div class="category-container">
+                <h3><%= category.title %></h3>
+                <p><%= category.description %></p>
+                <div class="today-task-container">
+                    <p>Pending tasks: <%= @pending_tasks_count[category.id] || 0 %></p>
             </div>
             <div class="show-category-link">
                 <%= link_to "Show this category", category %>
             </div>
         </div>
     <% end %>
-     <% else %>
-                <p>No categories post yet.</p>
+    <% else %>
+        <p>No categories post yet.</p>
     <% end %>
-
-   
 </div>

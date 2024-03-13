@@ -63,13 +63,13 @@ a:hover {
 .new-task a:hover{
    color: black;
 }
-.completed-task {
+/* .completed-task {
    text-decoration: line-through;
- }
+ } */
  /* app/assets/stylesheets/application.css (or application.scss) */
-.task-checkbox:checked + label {
+/* .task-checkbox:checked + span {
    text-decoration: line-through;
- }
+ } */
  /* .task-checkbox:checked + div {
    text-decoration: line-through;
  } */

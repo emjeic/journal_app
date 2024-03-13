@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
     def index
       @tasks = @category.tasks
+      @tasks = Task.incomplete_for_today
     end
 
     def new
@@ -29,7 +30,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to [@category, @task], notice: 'Task was successfully updated.'
+      redirect_to category_path(@category), notice: 'Task was successfully updated.'
     else
       render :edit
     end
