@@ -2,7 +2,7 @@
   <div class="nav-action">
       <%= link_to "Home", categories_path %> |
       <%= link_to "Edit", edit_category_path(@category) %> |
-      <%= button_to "Delete this category", category_path(@category),
+      <%= link_to "Delete this category", category_path(@category),
       method: :delete, data: { turbo_confirm: "Are you sure?" }
       %>              
   </div>
@@ -27,8 +27,8 @@
       <!-- # User story #8: As a user, I want to view my task for today for me to remind what are my priorities for today. -->
     <div class="today-task-container">
       <h3>Today's tasks</h3>
-        <% if @tasks.any? %>
-          <% @tasks.each do |task| %>
+        <% if @tasks_today.any? %>
+          <% @tasks_today.each do |task| %>
             <div>
               <!-- Additional user story: As a user, I want to mark a task as completed so that I can get that dopamine hit -->  
               <%= form_for(task, url: category_task_path(@category, task), method: :patch) do |f| %>

@@ -1,4 +1,8 @@
 // app/assets/javascripts/application.js
+//= require rails-ujs
+
+
+// app/assets/javascripts/application.js
 $(document).on('change', '.task-checkbox', function() {
   var taskId = $(this).val();
   var completed = $(this).prop('checked');

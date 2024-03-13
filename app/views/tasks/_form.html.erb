@@ -1,6 +1,6 @@
 <%= form_with model: [ @category, @task ], local: true, data: {turbo: false} do |form| %>
     
-    <div>
+    <div class="field">
         <%= form.label :task %>
         <%= form.text_field :task %><br/>
     </div>

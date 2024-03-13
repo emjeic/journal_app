@@ -8,10 +8,9 @@
   <tr>
     <!-- Task column -->
     <td> 
-      <span <%= 'style="text-decoration: line-through;"' if task.completed? %>>
-            <%= task.task %>
-      </span>
+        <%= task.task %>
     </td>
+
     <!-- Action column -->
     <td>
       <!-- Additional user story: As a user, I want to mark a task as completed so that I can get that dopamine hit -->  
@@ -21,9 +20,10 @@
       <% end %>
       <%= link_to "Edit", edit_category_task_path(@category, task) %>
       <!-- # User story #7: As a user, I want to delete a task to lessen my unnecessary daily tasks. -->
-      <%= button_to "Delete", category_task_path(@category, task),
+      <%= link_to "Delete", category_task_path(@category, task),
       method: :delete, data: { turbo_confirm: "Are you sure?" } %>
     </td>
+
     <!-- Assigned date column -->
     <td><%= task.date %></td>
 

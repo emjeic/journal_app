@@ -7,11 +7,11 @@ class TasksController < ApplicationController
       @tasks = @category.tasks
       @tasks = Task.incomplete_for_today
     end
-
+# User story #4: As a user, I want to create a task for a specific category so that I can organize tasks quicker.
     def new
       @task = @category.tasks.new
     end
-# User story #4: As a user, I want to create a task for a specific category so that I can organize tasks quicker.
+
     def create
       @task = @category.tasks.new(task_params)
       @task.completed = false
