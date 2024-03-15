@@ -1,15 +1,12 @@
-body {
-    background-color: rgb(195, 223, 248);
-}
-
 .login-container {
-    border: 5px solid black;
+    border: 2px solid lightgray;
     border-radius: 5px;
     padding: 10px;
     margin: auto;
     text-align: center;
     width: 30%;
     height: 50vh;
-    background-color: color-mix(in srgb, #34c9eb 50%, white 50%);
-    margin-top: 100px;   
+    /* background-color: color-mix(in srgb, #34c9eb 50%, white 50%); */
+    margin-top: 100px;
+    box-shadow: 5px 10px #cac6c6;
 }

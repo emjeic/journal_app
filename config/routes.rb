@@ -18,8 +18,7 @@ Rails.application.routes.draw do
    
   root "categories#index"
   resources :categories do
-    resources :tasks do
-      patch :update_completed, on: :member
-    end
+    resources :tasks
+    
   end
 end

@@ -32,7 +32,8 @@
    border: 1px solid gray;
    border-radius: 3px;
    margin: auto;
-   background-color: #99E5FF;
+   /* background-color: #99E5FF; */
+   box-shadow: 5px 10px #cac6c6;
    max-width: 1000px;
    height: 400px;
 }
@@ -41,9 +42,9 @@
    padding: 5px;
    height: fit-content;
    width: 300px;
-   border: 1px solid black;
+   border: 1px solid lightgrey;
    border-radius: 3px;
-   background-color: whitesmoke;
+   background-color: rgba(241, 156, 128, 0.792);
    z-index: 0;
 }
 /* .show-category-link {

@@ -63,4 +63,5 @@ class CategoriesController < ApplicationController
     def set_category
         @category = current_user.categories.find(params[:id])
     end
+
 end

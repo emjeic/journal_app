@@ -3,25 +3,24 @@ class TasksController < ApplicationController
   before_action :set_category, only: [:new, :create]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-    def index
-      @tasks = @category.tasks
-      @tasks = Task.incomplete_for_today
-    end
-# User story #4: As a user, I want to create a task for a specific category so that I can organize tasks quicker.
-    def new
-      @task = @category.tasks.new
-    end
+  def index
+    @tasks = @category.tasks
+  end
 
-    def create
-      @task = @category.tasks.new(task_params)
-      @task.completed = false
-      @task.user = current_user
-      if @task.save
-        redirect_to category_path(@category), notice: 'Task was successfully created.'
-      else
-        render :new
-      end
-      
+# User story #4: As a user, I want to create a task for a specific category so that I can organize tasks quicker.
+  def new
+    @task = @category.tasks.new
+  end
+
+  def create
+    @task = @category.tasks.new(task_params)
+    @task.completed = false
+    @task.user = current_user
+    if @task.save
+      redirect_to category_path(@category), notice: 'Task was successfully created.'
+    else
+      render :new
+    end
   end
 # User story #5: As a user, I want to edit a task to update task's details.
   def edit
@@ -42,24 +41,19 @@ class TasksController < ApplicationController
     redirect_to category_path(@category), notice: "Task #{@task.task} successfully destroyed.", status: :see_other
   end
 
-  def update_completed
-    @task = Task.find(params[:id])
-    @task.update(completed: !@task.completed)
-    redirect_to category_path(@task.category)
+
+  private
+  def task_params
+    params.require(:task).permit(:task, :body, :date, :completed)
   end
 
+  def set_category
+    @category = current_user.categories.find(params[:category_id])
+  end
 
-    private
-    def task_params
-        params.require(:task).permit(:task, :body, :date, :completed)
-    end
+  def set_task
+    @category = current_user.categories.find(params[:category_id])
+    @task = @category.tasks.find(params[:id])  
+  end
 
-    def set_category
-      @category = current_user.categories.find(params[:category_id])
-    end
-
-    def set_task
-      @category = current_user.categories.find(params[:category_id])
-      @task = @category.tasks.find(params[:id])  
-    end
 end
