@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     end
   end
     
-
+# User story #7: As a user, I want to delete a task to lessen my unnecessary daily tasks.
   def destroy
     @task.destroy
     redirect_to category_path(@category), notice: "Task #{@task.task} successfully destroyed.", status: :see_other

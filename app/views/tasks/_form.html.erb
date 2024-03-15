@@ -1,27 +1,34 @@
-<%= form_with model: [ @category, @task ], local: true, data: {turbo: false} do |form| %>
-     <% if @task.errors.any? %>
-    <div id="error_explanation">
+<div class="create-task-form">
+  <%= form_with model: [ @category, @task ], local: true, data: {turbo: false} do |form| %>
+    <% if @task.errors.any? %>
+      <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      <ul>
-        <% @task.errors.full_messages.each do |message| %>
+
+        <ul>
+          <% @task.errors.full_messages.each do |message| %>
           <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-    <div class="field">
-        <%= form.label :task %>
-        <%= form.text_field :task %><br/>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="task-area-field">
+      <%= form.label :task %><br/>
+      <%= form.text_area :task %><br/>
     </div>
 
-    <div class="field">
-        <%= form.label :date %>
-        <%= form.date_field :date %>
+    <div class="task-date-field">
+      <%= form.label :Assigned_date %><br/>
+      <%= form.date_field :date %>
     </div>
 
-    <div>
-        <%= form.submit "Create task"%>
+    <div >
+      <% if @task.new_record? %>
+        <%= form.submit "Create task", class: "create-button" %>
+      <% else %>
+        <%= form.submit "Update task", class: "create-button" %>
+      <% end %>
     </div>
 
-<% end %>
+    <% end %>
+</div>

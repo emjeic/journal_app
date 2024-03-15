@@ -21,7 +21,11 @@
   </div>
 
   <div>
-    <%= form.submit "Create Category"%>
+    <% if @category.new_record? %>
+      <%= form.submit "Create Category", class: "create-button" %>
+    <% else %>
+      <%= form.submit "Update Category", class: "create-button" %>
+    <% end %>
   </div>
-  
+
 <% end %>

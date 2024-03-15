@@ -1,6 +1,5 @@
-<h2>Dashboard</h2>
-<h1 class="title">Journal App</h1>
-<%= link_to "New Category", new_category_path %>
+<h2 class="title">Journal App</h2>
+<%= button_to "New Category", new_category_path, method: :get, class: "create-button" %>
 
 <div class="flexbox-container">   
     <% if @categories.any? %>

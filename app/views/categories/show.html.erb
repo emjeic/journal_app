@@ -1,9 +1,9 @@
 <div class='show-container'>
-  <div class="nav-action">
+  <div class="nav-bar">
       <%= link_to "Home", categories_path %> |
       <%= link_to "Edit", edit_category_path(@category) %> |
       <%= link_to "Delete this category", category_path(@category),
-      method: :delete, data: { turbo_confirm: "Are you sure?" }
+        method: :delete, data: { turbo_confirm: "Are you sure?" }
       %>              
   </div>
 
@@ -11,19 +11,31 @@
     <h1><%= @category.title %></h1>
     <p><%= @category.description %></p>
   </div>
-  <div class="new-task">
-    <%= link_to "New task", new_category_task_path(@category) %>
+  <div>
+    <%= button_to "Create task", new_category_task_path(@category), method: :get, class: "create-button" %>
   </div>
 
   <!-- # User story #6: As a user, I want to view a task to show task's details. -->
   <h3>Task list</h3>
     <div class="task-list-container">
-      <% if @tasks.any? %>
-        <%= render @category.tasks %>
-      <% else %>
-        <p>No task post yet.</p>
-      <% end %>
+      <table>
+        <tr>
+          <th>Task</th>
+          <th>Action</th>
+          <th>Assigned_date</th>
+          <th>Status</th>
+        </tr>
+      
+        <tr>
+          <% if @tasks.any? %>
+            <%= render @category.tasks %>
+          <% else %>
+            <p>No task post yet.</p>
+          <% end %>
+        </tr>
+      </table>
     </div>
+
     <!-- # User story #8: As a user, I want to view my task for today for me to remind what are my priorities for today. -->
     <div class="today-task-container">
       <h3>Today's tasks</h3>

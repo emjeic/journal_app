@@ -1,10 +1,4 @@
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Action</th>
-    <th>Assigned_date</th>
-    <th>Status</th>
-  </tr>
+<table class="table-data">
   <tr>
     <!-- Task column -->
     <td> 
@@ -18,9 +12,11 @@
         <%= f.check_box :completed, onchange: "this.form.submit()" %>
           <span>Mark as complete</span>
       <% end %>
+
       <% unless task.completed? %>
         <%= link_to "Edit", edit_category_task_path(@category, task) %>
       <% end %>
+
       <!-- # User story #7: As a user, I want to delete a task to lessen my unnecessary daily tasks. -->
       <%= link_to "Delete", category_task_path(@category, task),
       method: :delete, data: { turbo_confirm: "Are you sure?" } %>

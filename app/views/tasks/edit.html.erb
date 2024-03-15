@@ -1,5 +1,7 @@
-<h1>Edit Task</h1>
+<div class="edit">
+  <h2>Edit Task</h2>
 
-<%= render "form", task: @task %>
+  <%= render "form", task: @task %>
 
-<%= link_to "Back to category", category_path(@category.id) %>
+  <%= link_to "Back to category", category_path(@category.id) %>
+</div>
