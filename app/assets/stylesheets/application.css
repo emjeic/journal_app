@@ -42,6 +42,7 @@
    box-shadow: 5px 10px #cac6c6;
    max-width: 1200px;
    height: 500px;
+   overflow: auto;
 }
 .category-container {
    margin: 5px;
@@ -49,15 +50,9 @@
    height: fit-content;
    width: 200px;
    border: 1px solid lightgrey;
+   text-align: center;
    border-radius: 3px;
-   /* background-color: tomato; */
-   /* color: white; */
-   z-index: 0;
 }
-/* .show-category-link {
-   position: fixed;
-   margin-top: 50px;
-} */
 a {
    text-decoration: none;
    cursor: pointer;

@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+ before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
     @categories = current_user.categories.order(:created_at)
@@ -30,7 +29,7 @@ class CategoriesController < ApplicationController
 
   # User story #2: As a user, I want to edit a category to update the category's details.
   def edit
-
+    
   end
 
   def update
