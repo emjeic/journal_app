@@ -51,8 +51,8 @@ class CategoriesController < ApplicationController
 
   # Additional user story: As a user, I want to delete a category to better organize my tasks
   def destroy
-    if @category.has_complete_and_incomplete_tasks? 
-        redirect_to categories_path, alert: "Cannot delete category #{@category.title} with both complete and incomplete tasks."
+    if @category.has_complete_and_incomplete_tasks?
+        redirect_to category_path(@category), alert: "Cannot delete category #{@category.title} with both complete and incomplete tasks."
     else
       @category.destroy
         redirect_to categories_path, notice: "Category #{@category.title} successfully destroyed."
