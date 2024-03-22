@@ -5,10 +5,10 @@ class CategoriesController < ApplicationController
     @categories = current_user.categories.order(:created_at)
 
     # count pending task
-    @pending_tasks_count = {}
+    @number_of_pending_tasks = {}
     @categories.each do |category|
-    pending_tasks = category.tasks.where(completed: false).count
-    @pending_tasks_count[category.id] = pending_tasks
+      pending_tasks = category.tasks.where(completed: false).count
+      @number_of_pending_tasks[category.id] = pending_tasks
     end
   end
 
@@ -29,7 +29,6 @@ class CategoriesController < ApplicationController
 
   # User story #2: As a user, I want to edit a category to update the category's details.
   def edit
-    
   end
 
   def update
@@ -52,8 +51,12 @@ class CategoriesController < ApplicationController
 
   # Additional user story: As a user, I want to delete a category to better organize my tasks
   def destroy
-    @category.destroy
-      redirect_to categories_path, notice: "Category #{@category.title} successfully destroyed.", status: :see_other
+    if @category.has_complete_and_incomplete_tasks? 
+        redirect_to categories_path, alert: "Cannot delete category #{@category.title} with both complete and incomplete tasks."
+    else
+      @category.destroy
+        redirect_to categories_path, notice: "Category #{@category.title} successfully destroyed."
+    end
   end
 
   private

@@ -1,6 +1,11 @@
 <h2 class="title">Journal App</h2>
 <%= button_to "New Category", new_category_path, method: :get, class: "create-button" %>
 
+    <div class="notice-alert">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+
 <div class="flexbox-container">   
     <% if @categories.any? %>
         <% @categories.each do |category| %>
@@ -8,7 +13,7 @@
                 <h3><%= category.title %></h3>
                 <p><%= category.description %></p>
                 <div class="today-task-container">
-                    <p>Pending tasks: <%= @pending_tasks_count[category.id] || 0 %></p>
+                    <p>Pending tasks: <%= @number_of_pending_tasks[category.id] || 0 %></p>
             </div>
             <div class="show-category-link">
                 <%= link_to "Show this category", category %>

@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
-  before_action :set_category, only: [:new, :create]
+  before_action :set_category, only: [:new, :create, :show, :edit, :update, :destroy]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = @category.tasks
+    @tasks = @category.tasks.order(id: :asc)
   end
 
-# User story #4: As a user, I want to create a task for a specific category so that I can organize tasks quicker.
+  # User story #4: As a user, I want to create a task for a specific category so that I can organize tasks quicker.
   def new
     @task = @category.tasks.new
   end
@@ -21,9 +21,9 @@ class TasksController < ApplicationController
       render :new
     end
   end
-# User story #5: As a user, I want to edit a task to update task's details.
+
+  # User story #5: As a user, I want to edit a task to update task's details.
   def edit
-    
   end
 
   def update
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
     end
   end
     
-# User story #7: As a user, I want to delete a task to lessen my unnecessary daily tasks.
+  # User story #7: As a user, I want to delete a task to lessen my unnecessary daily tasks.
   def destroy
     @task.destroy
     redirect_to category_path(@category), notice: "Task #{@task.task} successfully destroyed.", status: :see_other
@@ -51,7 +51,6 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @category = current_user.categories.find(params[:category_id])
     @task = @category.tasks.find(params[:id])  
   end
 

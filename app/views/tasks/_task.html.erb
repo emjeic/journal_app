@@ -18,8 +18,10 @@
       <% end %>
 
       <!-- # User story #7: As a user, I want to delete a task to lessen my unnecessary daily tasks. -->
-      <%= link_to "Delete", category_task_path(@category, task),
-      method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+       <%= link_to "Delete", category_task_path(@category, task), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure you want to delete this task?"
+        } %>
     </td>
 
     <!-- Assigned date column -->

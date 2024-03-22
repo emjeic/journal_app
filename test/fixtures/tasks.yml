@@ -1,5 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 
-
+six:
+  task: Task created for March 10
+  category_id: 6
 
