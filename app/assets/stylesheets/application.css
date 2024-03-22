@@ -16,31 +16,36 @@
  /* body {
     background-color: gray;
  } */
- 
+ body {
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   background-color: #021027;
+   color: white;
+ }
  .header {
    text-align: right;
    padding: 10px;
-   /* position: fixed; */
    top: 0;
-   /* width: 100%; */
- }
- .logout a:hover {
-   text-decoration: none;
- }
- .title {
    background-color: firebrick;
    color: white;
+ }
+ .header > a {
+   color: white;
+ }
+ .header > a:hover {
+   text-decoration: none;
+   color: #021027
+ }
+ .title {
+   color: rgb(188, 29, 188);
    padding: 5px;
-   text-align: center;
+   text-transform: uppercase;
  }
 .flexbox-container {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   border: 1px solid gray;
    border-radius: 3px;
    margin: auto;
-   box-shadow: 5px 10px #cac6c6;
    max-width: 1200px;
    height: 500px;
    overflow: auto;
@@ -51,8 +56,23 @@
    height: fit-content;
    width: 200px;
    border: 1px solid lightgrey;
+   /* box-shadow: 5px 10px #cac6c6; */
    text-align: center;
    border-radius: 3px;
+   -webkit-box-shadow: 0 10px 6px -6px #777;
+   -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
+}
+.category-container > h3 {
+   text-transform: uppercase;
+   color: rgb(188, 29, 188);
+}
+.category {
+   text-align: center;
+}
+.category > h1 {
+   color: rgb(188, 29, 188);
+   text-transform: uppercase;
 }
 a {
    text-decoration: none;
@@ -61,7 +81,7 @@ a {
 }
 a:hover {
    text-decoration: underline;
-   color: black;
+   color: white;
 }
 .create-task-button1 {
    border: 1px solid gray;
@@ -82,13 +102,14 @@ a:hover {
    color: white;
 }
  table, th, td {
-   border: 1px solid black;
+   border: 1px solid white;
    text-align: center;
    min-width: 370px;
  }
  table {
    border-collapse: collapse;
    margin: auto;
+
  }
  .table-row-data {
    max-height: 300px;
@@ -97,17 +118,60 @@ a:hover {
    width: 350px;
  }
  th {
-   background-color: lightgray;
+   background-color: rgb(243, 74, 45);
  }
-.nav-bar {
-   background-color: firebrick;
-   padding: 10px;
+nav {
+   background: #fff;
+   box-shadow: 0px 5px 0px #dedede;
 }
-.nav-bar > a {
-   color: white;
+nav ul {
+   list-style: none;
+ }
+ nav ul li {
+   display: inline-block;
+ }
+ nav ul li a {
+   display: block;
+   padding: 5px;
+   text-decoration: none;
+   color: #aaa;
+   font-weight: 600;
+   text-transform: uppercase;
+ }
+ nav ul li a,
+ nav ul li a:after,
+ nav ul li a:before {
+   transition: all .5s;
+ }
+ nav ul li a:hover {
+   color: #555;
+   text-decoration: none;
+ }
+
+ nav.nav-bar ul li a {
+  position: relative;
+}
+nav.nav-bar ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: tomato;
+  height: 1px;
+}
+nav.nav-bar ul li a:hover:after {
+  width: 100%;
 }
 .create-task {
    margin: 5px;
+}
+input, textarea {
+   background-color: transparent;
+   color: white;
 }
 textarea {
    width: 300px;
@@ -115,12 +179,10 @@ textarea {
    resize: none;
 }
 .new-task > h2 {
-   background-color: firebrick;
-   color: white;
+   color: rgb(188, 29, 188); ;
    padding: 5px;
 }.new-category > h2 {
-   background-color: firebrick;
-   color: white;
+   color: rgb(188, 29, 188);;
    padding: 5px;
 }
 .create-button {
@@ -136,8 +198,7 @@ textarea {
    cursor: pointer;
 }
 .edit > h2{
-   background-color: firebrick;
-   color: white;
+   color: blue;
    padding: 5px;
 }
 .notice {
@@ -145,4 +206,7 @@ textarea {
 }
 .alert {
    color: red;
+}
+.field > input {
+   width: 15vw;
 }

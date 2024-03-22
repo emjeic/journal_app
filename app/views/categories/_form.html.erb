@@ -10,12 +10,12 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title %>
+  <div class="category-field-input">
+    <%= form.label :title %><br/>
     <%= form.text_field :title %><br/>
   </div>
 
-  <div>
+  <div class="category-field-textarea">
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description %>
   </div>

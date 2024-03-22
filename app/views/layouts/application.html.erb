@@ -12,14 +12,14 @@
   </head>
 
   <body>
-    <div class="header">
-      <% if user_signed_in? %>
-      <span>Welcome,</span>
-        <%= current_user.email %>
-        <%= link_to "Logout", destroy_user_session_path, data:{turbo_method: :delete} %>
-      <% end %>
-    </div>
-
+    <% if user_signed_in? %>
+      <div class="header">
+        <span>Welcome,</span>
+          <%= current_user.email %> | 
+          <%= link_to "Logout", destroy_user_session_path, data:{turbo_method: :delete}, class: "logout" %>
+      </div>
+    <% end %>
+    
     <%= yield %>
 
   </body>
