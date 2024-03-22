@@ -21,7 +21,7 @@
     <div>
       <%= button_to "Create task", new_category_task_path(@category), method: :get, class: "create-button" %>
     </div>
-    
+
     <div>
       <% if @tasks.any? %>
         <%= button_to "Delete All Tasks", delete_all_category_tasks_path(@category), method: :delete, data: { turbo_confirm: "Are you sure you want to delete all tasks?"}, class: "delete-all-tasks-button"  %>
@@ -31,7 +31,7 @@
 
 
   <!-- # User story #6: As a user, I want to view a task to show task's details. -->
-  <h3>Task list</h3>
+  <h3>Tasks list</h3>
     <div class="task-list-container">
       <table>
         <tr>

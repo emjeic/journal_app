@@ -42,7 +42,7 @@ class TasksController < ApplicationController
 
   # delete all tasks
   def delete_all
-    Task.delete_all
+    @category.tasks.delete_all
     redirect_to category_path(@category), notice: "All tasks successfully deleted."
   end
 
