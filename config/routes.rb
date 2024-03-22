@@ -18,7 +18,8 @@ Rails.application.routes.draw do
    
   root "categories#index"
   resources :categories do
-    resources :tasks
-    
+    resources :tasks do
+      delete :delete_all, on: :collection
+    end 
   end
 end

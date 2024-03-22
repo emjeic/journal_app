@@ -197,6 +197,24 @@ textarea {
    background-color: rgb(4, 193, 4);
    cursor: pointer;
 }
+.delete-all-tasks-button {
+   margin-top: 5px;
+   padding: 5px;
+   border: none;
+   border-radius: 3px;
+   background-color: rgb(176, 7, 7);
+   color: white;
+}
+.delete-all-tasks-button:hover {
+   background-color: rgb(238, 5, 5);
+   cursor: pointer;
+}
+.div-flex-button {
+   display: flex;
+}
+.div-flex-button > div {
+   margin: 5px;
+}
 .edit > h2{
    color: blue;
    padding: 5px;

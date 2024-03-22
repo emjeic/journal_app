@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_category, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_category, only: [:new, :create, :show, :edit, :update, :destroy, :delete_all]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -38,6 +38,12 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     redirect_to category_path(@category), notice: "Task #{@task.task} successfully destroyed.", status: :see_other
+  end
+
+  # delete all tasks
+  def delete_all
+    Task.delete_all
+    redirect_to category_path(@category), notice: "All tasks successfully deleted."
   end
 
 
